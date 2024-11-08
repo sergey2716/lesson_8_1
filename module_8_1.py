@@ -15,11 +15,12 @@ TypeError - когда a и b окажутся разными типами (чи
 
 def add_everything_up(a,b):
     try:
-         if type({a})==type({b}):
-             return round((a + b),3)
+         if isinstance(a,(int,float)) and isinstance(b,(int,float)):
+             return a + b
+         elif isinstance(a,str) and isinstance(b,str):
+             return a + b
 
          else:
-             type({a}) != type({b})
              raise TypeError
     except TypeError:
              return f'{str(a)}{str(b)}'
